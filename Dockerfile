@@ -9,6 +9,7 @@ RUN set -ex; \
     && apt-get install -y --no-install-recommends \
         dbus-x11 \
         nautilus \
+        gedit \
         expect \
         sudo \
         vim \
@@ -25,6 +26,7 @@ RUN set -ex; \
         wget \
         g++ \
         ssh \
+	chromium-browser \
         terminator \
         htop \
         gnupg2 \
@@ -37,11 +39,9 @@ RUN set -ex; \
 	ibus-gtk \
 	ibus-gtk3 \
 	ibus-qt4 \
-        icecc \
-        icecc-monitor \
-        firefox \
-        ccache \
-        git-core gnupg flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig \
+
+        python3 git-core gnupg flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig \
+
     && apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
