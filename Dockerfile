@@ -46,14 +46,6 @@ RUN set -ex; \
     && apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
-RUN curl -s https://install.zerotier.com | sudo bash
-
-RUN adduser --disabled-password --gecos '' admin
-RUN adduser admin sudo
-RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-
-USER admin
-
 RUN dpkg-reconfigure locales
 
 COPY . /app
@@ -73,5 +65,10 @@ RUN chmod +x /app/expect_vnc.sh
 #	anydesk
 
 RUN echo xfce4-session >~/.xsession
+RUN adduser --disabled-password --gecos '' admin
+RUN adduser admin sudo
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+USER admin
+RUN curl -s https://install.zerotier.com | sudo bash
 
 CMD ["/app/run.sh"]
