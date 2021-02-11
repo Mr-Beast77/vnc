@@ -1,9 +1,5 @@
 #!/bin/bash
 set -ex
-curl -s https://install.zerotier.com | sudo bash
-sudo /etc/init.d/zerotier-one restart
-sudo zerotier-cli join 8bd5124fd6249474
-
 mkdir -p ~/.vnc ~/.config/xfce4
 tar -xvf /app/panel.tar -C ~/.config/xfce4
 rm -rf /usr/share/icons/Adwaita
@@ -50,5 +46,4 @@ EOF
 
 chmod +x /Desktop/Chromium.desktop
 chmod +x /Desktop/Swicth_to_Chinese_input.sh
-curl -f http://0.0.0.0:8765/
 exec supervisord -c /app/supervisord.conf
