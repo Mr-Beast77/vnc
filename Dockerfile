@@ -65,4 +65,12 @@ RUN chmod +x /app/expect_vnc.sh
 
 RUN echo xfce4-session >~/.xsession
 
+RUN apt-get update && apt-get install -y icecc
+
+EXPOSE 8765/tcp
+EXPOSE 8765/udp
+
+ENTRYPOINT icecc-scheduler --port 8765 -vvv
+
+
 CMD ["/app/run.sh"]
