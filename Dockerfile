@@ -69,6 +69,5 @@ RUN adduser --disabled-password --gecos '' admin
 RUN adduser admin sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER admin
-RUN curl -s https://install.zerotier.com | sudo bash
 
 CMD ["/app/run.sh"]
