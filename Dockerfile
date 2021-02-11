@@ -66,4 +66,4 @@ RUN chmod +x /app/expect_vnc.sh
 #	anydesk
 
 RUN echo xfce4-session >~/.xsession
-CMD ["/bin/bash whoami ; /bin/sudo whoami ; /app/run.sh"]
+CMD ["/app/run.sh"]
