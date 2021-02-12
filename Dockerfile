@@ -41,7 +41,6 @@ RUN set -ex; \
 	ibus-qt4 \
         icecc \
         icecc-monitor \
-        wget \
 
         python3 ca-certificates git-core gnupg flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig \
 
@@ -49,10 +48,6 @@ RUN set -ex; \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
 RUN dpkg-reconfigure locales
-RUN wget -qO - 'https://download.opensuse.org/repositories/home:netvfy/xUbuntu_18.04/Release.key' | sudo apt-key add -
-RUN sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/netvfy/xUbuntu_18.04/ /' | sudo tee -a /etc/apt/sources.list.d/home:netvfy.list"
-RUN apt-get update
-RUN apt-get install -y netvfy-agent
 
 COPY . /app
 RUN chmod +x /app/conf.d/websockify.sh
