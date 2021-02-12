@@ -46,6 +46,4 @@ EOF
 
 chmod +x /Desktop/Chromium.desktop
 chmod +x /Desktop/Swicth_to_Chinese_input.sh
-whoami
-sudo whoami
 exec supervisord -c /app/supervisord.conf
