@@ -52,7 +52,7 @@ RUN dpkg-reconfigure locales
 RUN wget -qO - 'https://download.opensuse.org/repositories/home:netvfy/xUbuntu_18.04/Release.key' | sudo apt-key add -
 RUN sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/netvfy/xUbuntu_18.04/ /' | sudo tee -a /etc/apt/sources.list.d/home:netvfy.list"
 RUN apt-get update
-RUN apt-get install netvfy-agent
+RUN apt-get install -y netvfy-agent
 
 COPY . /app
 RUN chmod +x /app/conf.d/websockify.sh
