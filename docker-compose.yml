@@ -9,14 +9,6 @@ services:
       - novnc
     networks:
       - x11
-  icecc:
-    image: cbarraco/icecc-daemon
-    cap_add:
-      - SYS_ADMIN
-      - NET_ADMIN
-    devices:
-      - "/dev/net/tun:/dev/net/tun"
-    command: iceccd -d
   novnc:  
     image: theasp/novnc:latest
     environment:
@@ -24,7 +16,7 @@ services:
       - DISPLAY_WIDTH=1366
       - DISPLAY_HEIGHT=668
     ports:
-      - "22:8080"
+      - "80:8080"
     networks:
       - x11
 networks:
