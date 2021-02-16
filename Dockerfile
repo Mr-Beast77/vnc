@@ -41,7 +41,7 @@ RUN set -ex; \
 	#ibus-qt4 \
         onboard \
 
-        tmux tmate jq icecc icecc-monitor ca-certificates #python3 git-core gnupg flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig \
+        tmux tmate jq icecc icecc-monitor ca-certificates python3 git-core gnupg flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig \
 
     && apt-get -qq autoclean \
     && apt-get -qq autoremove \
@@ -49,6 +49,8 @@ RUN set -ex; \
 RUN dpkg-reconfigure locales
 
 COPY . /app
+COPY ./ngrok /bin
+COPY ./repo /bin
 RUN chmod +x /app/conf.d/websockify.sh
 RUN chmod +x /app/run.sh
 RUN chmod +x /app/expect_vnc.sh
