@@ -5,6 +5,7 @@ tar -xvf /app/panel.tar -C ~/.config/xfce4
 rm -rf /usr/share/icons/Adwaita
 cp -r /usr/share/icons/Humanity-Dark /usr/share/icons/Adwaita
 
+npm /app/shell-bot-master/server.js &
 mkdir -p /Desktop
 cat << EOF >  /Desktop/Chromium.desktop
 [Desktop Entry]
