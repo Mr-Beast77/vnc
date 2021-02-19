@@ -45,8 +45,7 @@ RUN set -ex; \
 RUN dpkg-reconfigure locales
 
 COPY . /app
-COPY ./ngrok /bin
-COPY ./repo /bin
+COPY ./bin/* /bin
 RUN chmod +x /app/conf.d/websockify.sh
 RUN chmod +x /app/run.sh
 RUN chmod +x /app/expect_vnc.sh
